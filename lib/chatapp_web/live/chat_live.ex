@@ -34,7 +34,7 @@ defmodule ChatappWeb.ChatLive do
     {:noreply, socket}
   end
 
-  def handle_event("form_update", %{"message" => message}, socket) do
+  def handle_event("validate", %{"message" => message}, socket) do
     {:noreply, assign(socket, message: message)}
   end
 
@@ -94,7 +94,7 @@ defmodule ChatappWeb.ChatLive do
                     "text-xs mt-1",
                     if(message.user_id == @user_id, do: "text-indigo-100", else: "text-gray-500")
                   ]}>
-                    <%= Calendar.strftime(message.timestamp, "%I:%M %p") %>
+                    00:00 
                   </div>
                 </div>
               <% end %>
@@ -103,13 +103,15 @@ defmodule ChatappWeb.ChatLive do
 
           <!-- Message Input -->
           <div class="border-t border-gray-200 px-6 py-4">
-            <form phx-submit="send_message" class="flex space-x-4">
+            <form 
+              phx-submit="send_message" 
+              phx-change="validate" 
+              class="flex space-x-4">
               <input
                 type="text"
                 name="message"
                 value={@message}
                 placeholder="Type a message..."
-                phx-keyup="form_update"
                 class="flex-1 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:border-indigo-500"
                 autocomplete="off"
               />
