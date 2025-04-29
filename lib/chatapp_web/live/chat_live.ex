@@ -74,7 +74,7 @@ defmodule ChatappWeb.ChatLive do
           </div>
 
           <!-- Messages Container -->
-          <div class="h-[600px] overflow-y-auto px-6 py-4 flex flex-col-reverse">
+          <div class="h-[300px] overflow-y-auto px-6 py-4 flex flex-col-reverse">
             <div class="space-y-4">
               <%= for message <- @messages do %>
                 <div class={[
