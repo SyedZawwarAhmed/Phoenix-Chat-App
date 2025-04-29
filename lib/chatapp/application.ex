@@ -18,7 +18,8 @@ defmodule Chatapp.Application do
       # {Chatapp.Worker, arg},
       # Start to serve requests, typically the last entry
       ChatappWeb.Endpoint,
-      Chatapp.UserStore
+      Chatapp.UserStore,
+      Chatapp.ChatStore
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
